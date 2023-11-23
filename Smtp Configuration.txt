@@ -1,0 +1,50 @@
+PHP Mail Sender 
+
+Goto your Xampp \php folder and open the php.ini file 
+
+1) press ctrl+f and find [mail function]
+    
+    [mail function]
+; For Win32 only.
+; https://php.net/smtp
+
+2) SMTP = smtp.gmail.com
+3)smtp_port = 587
+4)sendmail_from = Your email@gmail.com
+5)sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+and then save the php.ini file 
+
+
+Next Goto Your Xampp\sendmail folder and open sendmail.ini file
+
+1) press ctrl+f and find smtp_server
+
+2) smtp_server=smtp.gmail.com
+3) smtp_port=587
+4) error_logfile=error.log
+   debug_logfile=debug.log
+5) auth_username=Youremail@gmail.com
+    auth_password=Your email app password 
+6) force_sender = yourmail@gmail.com (optional)
+
+
+Find Yourmail app password Goto Your Manage Account=> Left Side Click Security => in Security Goto 2 Step Verification on => After On the 2 Step Verification scroll down and find App password then click and enter Your App Name and create after create Google Show Your App Password this password are put  in auth_password
+
+
+
+and check that they are working on creating a PHP file and putting this code 
+
+<?php
+$to_email = recipient email";
+$subject = "subject";
+$body = "Write Your Message ";
+$headers = "From: sender mail ";
+
+if (mail($to_email, $subject, $body, $headers)) {
+    echo "Email successfully sent to $to_email...";
+} else {
+    echo "Email sending failed...";
+}
+
+?>
